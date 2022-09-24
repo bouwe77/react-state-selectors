@@ -1,0 +1,10 @@
+.blink {
+  animation: blink 0.5s normal;
+  background: transparent;
+}
+
+@keyframes blink {
+  50% {
+    background: green;
+  }
+}
