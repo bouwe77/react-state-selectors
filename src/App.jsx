@@ -7,8 +7,6 @@ function App() {
 
   return (
     <BlinkOnRender>
-      <button onClick={rerender}>Rerender</button>
-
       <Counter />
 
       <Counter />
@@ -21,7 +19,9 @@ const Counter = () => {
 
   return (
     <BlinkOnRender>
-      <button onClick={() => setCount((c) => c + 1)}>{count}</button>
+      <button className="number" onClick={() => setCount((c) => c + 1)}>
+        {count}
+      </button>
     </BlinkOnRender>
   )
 }

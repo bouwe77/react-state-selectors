@@ -8,3 +8,15 @@
     background: green;
   }
 }
+
+button {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.number {
+  font-size: 4vh;
+}
