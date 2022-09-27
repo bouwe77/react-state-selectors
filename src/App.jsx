@@ -7,23 +7,31 @@ function App() {
 
   return (
     <BlinkOnRender>
-      <Counter />
+      <Counter1 />
 
-      <Counter />
+      <Counter2 />
     </BlinkOnRender>
   )
 }
 
-const Counter = () => {
+const Counter1 = () => {
   const [count, setCount] = useState(0)
 
-  return (
-    <BlinkOnRender>
-      <button className="number" onClick={() => setCount((c) => c + 1)}>
-        {count}
-      </button>
-    </BlinkOnRender>
-  )
+  return <Button onClick={() => setCount((c) => c + 1)}>{count}</Button>
 }
+
+const Counter2 = () => {
+  const [count, setCount] = useState(0)
+
+  return <Button onClick={() => setCount((c) => c + 2)}>{count}</Button>
+}
+
+const Button = ({ children, onClick }) => (
+  <BlinkOnRender>
+    <button className="square" onClick={onClick}>
+      {children}
+    </button>
+  </BlinkOnRender>
+)
 
 export default App
