@@ -1,3 +1,11 @@
+.container {
+  background-color: aliceblue;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+
 .blink {
   animation: blink 0.5s normal;
   background: transparent;
@@ -5,7 +13,7 @@
 
 @keyframes blink {
   50% {
-    background: green;
+    background-color: cadetblue;
   }
 }
 

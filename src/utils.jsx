@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react'
 
+export const Wrapper = ({ children }) => <div className="container">{children}</div>
+
 export const BlinkOnRender = ({ children }) => (
   <div key={Date.now()} className="blink">
     {children}

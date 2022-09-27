@@ -1,11 +1,13 @@
-const CountContext = React.createContext()
+import { createContext, useCallback, useContext, useState } from 'react'
+
+const CountContext = createContext()
 
 function CountProvider({ children }) {
-  const [counter1, setCounter1] = React.useState(0)
-  const [counter2, setCounter2] = React.useState(0)
+  const [counter1, setCounter1] = useState(0)
+  const [counter2, setCounter2] = useState(0)
 
-  const increaseCounter1 = React.useCallback(() => setCounter1((prev) => prev + 3), [])
-  const increaseCounter2 = React.useCallback(() => setCounter2((prev) => prev + 5), [])
+  const increaseCounter1 = useCallback(() => setCounter1((prev) => prev + 3), [])
+  const increaseCounter2 = useCallback(() => setCounter2((prev) => prev + 5), [])
 
   const value = { counter1, increaseCounter1, counter2, increaseCounter2 }
 
@@ -13,7 +15,7 @@ function CountProvider({ children }) {
 }
 
 export const useCount = () => {
-  const context = React.useContext(CountContext)
+  const context = useContext(CountContext)
   if (context === undefined) throw new Error('useCount must be used within a CountProvider')
   return context
 }

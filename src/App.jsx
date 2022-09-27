@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import CountProvider, { useCount } from './CounterContext'
-import { BlinkOnRender, Button, useRerender } from './utils'
+import { BlinkOnRender, Button, useRerender, Wrapper } from './utils'
 
 function App() {
   const rerender = useRerender()
 
   return (
-    <CountProvider>
-      <BlinkOnRender>
-        <Counter1 />
-
-        <Counter2 />
-      </BlinkOnRender>
-    </CountProvider>
+    <Wrapper>
+      <CountProvider>
+        <BlinkOnRender>
+          <Counter1 />
+          <div>Hello World</div>
+          <Counter2 />
+        </BlinkOnRender>
+      </CountProvider>
+    </Wrapper>
   )
 }
 
