@@ -15,3 +15,11 @@ export const useRerender = () => {
 
   return rerender
 }
+
+export const Button = ({ children, onClick }) => (
+  <BlinkOnRender>
+    <button className="square" onClick={onClick}>
+      {children}
+    </button>
+  </BlinkOnRender>
+)

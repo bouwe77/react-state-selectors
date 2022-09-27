@@ -1,37 +1,32 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { BlinkOnRender, useRerender } from './utils'
+import CountProvider, { useCount } from './CounterContext'
+import { BlinkOnRender, Button, useRerender } from './utils'
 
 function App() {
   const rerender = useRerender()
 
   return (
-    <BlinkOnRender>
-      <Counter1 />
+    <CountProvider>
+      <BlinkOnRender>
+        <Counter1 />
 
-      <Counter2 />
-    </BlinkOnRender>
+        <Counter2 />
+      </BlinkOnRender>
+    </CountProvider>
   )
 }
 
 const Counter1 = () => {
-  const [count, setCount] = useState(0)
+  const { counter1, increaseCounter1 } = useCount()
 
-  return <Button onClick={() => setCount((c) => c + 1)}>{count}</Button>
+  return <Button onClick={increaseCounter1}>{counter1}</Button>
 }
 
 const Counter2 = () => {
-  const [count, setCount] = useState(0)
+  const { counter2, increaseCounter2 } = useCount()
 
-  return <Button onClick={() => setCount((c) => c + 2)}>{count}</Button>
+  return <Button onClick={increaseCounter2}>{counter2}</Button>
 }
-
-const Button = ({ children, onClick }) => (
-  <BlinkOnRender>
-    <button className="square" onClick={onClick}>
-      {children}
-    </button>
-  </BlinkOnRender>
-)
 
 export default App
